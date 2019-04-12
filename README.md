@@ -25,3 +25,4 @@ Many germs can cause pneumonia. The most common are bacteria and viruses in the 
 
 # Image Classification Steps
 
+![Screenshot from 2019-04-09 23-37-29](https://user-images.githubusercontent.com/37177883/56046558-14eb4d80-5d76-11e9-81ba-21b4464b2086.png)

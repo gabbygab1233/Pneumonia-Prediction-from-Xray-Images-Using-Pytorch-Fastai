@@ -6,6 +6,7 @@ Pneumonia can range in seriousness from mild to life-threatening. It is most ser
 
 # Causes
 
+![jZqpV51](https://user-images.githubusercontent.com/37177883/56046385-b02ff300-5d75-11e9-9439-dc964bf3fb22.png)
 
 
 Many germs can cause pneumonia. The most common are bacteria and viruses in the air we breathe. Your body usually prevents these germs from infecting your lungs. But sometimes these germs can overpower your immune system, even if your health is generally good.

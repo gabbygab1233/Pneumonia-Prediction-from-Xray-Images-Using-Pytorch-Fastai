@@ -1,0 +1,15 @@
+title: Pneumonia Detection
+
+
+
+
+sampleImages:
+  - name: Normal (not in training set)
+    url: http://www.chestx-ray.com/images/igallery/resized/1-100/78-87-500-500-100.jpg
+  - name: Pheumonia (not in training set)
+    url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kivhAQEX8RlU2ko_Q5CRN4116ZmCR3e_KHFssWyI-d_oZtTo
+  - name: Normal (not in training set)
+    url: https://prod-images.static.radiopaedia.org/images/903193/06eb041ff51e064424ba056806564a_jumbo.jpg
+  - name: Pheumonia (not in training set)
+    url: https://media.springernature.com/full/springer-static/image/art%3A10.15172%2Fpneu.2014.5%2F482/MediaObjects/41479_2016_5010038_Fig2.jpg
+

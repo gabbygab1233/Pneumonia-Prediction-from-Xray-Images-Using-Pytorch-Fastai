@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pneumonia Detection</title>
+    <script language="JavaScript">
+
+      window.onload = function() {
+        document.addEventListener("contextmenu", function(e){
+          e.preventDefault();
+        }, false);
+        document.addEventListener("keydown", function(e) {
+        //document.onkeydown = function(e) {
+          // "I" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            disabledEvent(e);
+          }
+          // "J" key
+          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+            disabledEvent(e);
+          }
+          // "S" key + macOS
+          if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+            disabledEvent(e);
+          }
+          // "U" key
+          if (e.ctrlKey && e.keyCode == 85) {
+            disabledEvent(e);
+          }
+          // "F12" key
+          if (event.keyCode == 123) {
+            disabledEvent(e);
+          }
+        }, false);
+        function disabledEvent(e){
+          if (e.stopPropagation){
+            e.stopPropagation();
+          } else if (window.event){
+            window.event.cancelBubble = true;
+          }
+          e.preventDefault();
+          return false;
+        }
+      };
+    </script>
+  <script>
+      var loadFile = function(event) {
+              var image = document.getElementById('output');
+              image.src = URL.createObjectURL(event.target.files[0]);
+      };
+      </script> 
+    
+    <style>
+      html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
+      </style>
+
+    <!-- Required dependencies -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.1/prop-types.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/react/16.3.2/umd/react.production.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.3.2/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel" data-presets="es2017, stage-3"
+            data-plugins="syntax-async-functions,transform-class-properties,transform-es2015-modules-umd, transform-async-to-generator"></script>
+    <!-- Optional dependencies -->
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/2.2.1/react-transition-group.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/react-popper/0.10.4/umd/react-popper.min.js"></script>
+    <!-- Reactstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reactstrap/7.1.0/reactstrap.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/react-router/4.3.1/react-router.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-markdown/4.0.6/react-markdown.js"></script>
+    <script src="https://unpkg.com/react-router-dom@4.3.1/umd/react-router-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+    <!-- Lastly, include your app's bundle -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/custom.css"/>
+    <link rel="shortcut icon" type="image/png" href="https://i.dlpng.com/static/png/4037934_preview.png" sizes="32x32">
+
+
+</head>
+
+  
+
+  <body class="w3-pale-blue"></body>
+<div class="w3-content card" style="max-width:960px">
+
+
+
+        <!-- 1. HOME PAGE TAB -->
+        <div class="tabbed w3-animate-opacity w3-white">
+        
+        
+        
+        <!-- Header -->
+        <div class="w3-center title adjust-fontcolor logo">
+                
+          <h1 class="space-letters w3-text-cyan"><i class="fa fa-plus-square w3-padding" ></i><b>Pneumonia Detection</b></h1>
+          <h5 class="space-letters tag-font w3-text-red"><b>powered by<br> Artificial Intelligence</b></h5>
+        </div>
+        
+      
+
+<body>
+
+<div id="root"></div>
+
+
+<script type="text/babel" src="js/main.jsx"></script>
+
+</body>
+
+</html>

@@ -16,6 +16,22 @@
 	background-image: linear-gradient(to right, #fc647d 0%, #7f83e5 51%, #fc647d 100%);
   }
   .btn-secondary:hover { background-position: right center; }
+
+  .btn btn-primary my-2 {
+	background-color: #7f83e5;
+  }
+  .btn btn-primary my-2:hover {
+	background-color: #4f518f;
+  }
+
+
+  .btn btn-secondary my-2 {
+	background-color: #fc647d;
+  }
+  .btn btn-primary my-2:hover {
+	background-color: #8f3b49;
+  }
+
    
   /*
    * Base structure
@@ -155,4 +171,5 @@ input[type="file"] {
 
 label {
 	margin: 10px;
+	margin-top: 5px;
 }

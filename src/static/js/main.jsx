@@ -120,7 +120,7 @@ class MainPage extends React.Component {
                     </tr>
                     <tr>
                         <td>{item.class}</td>
-                        <td>({item.prob * 100}%)</td>
+                        <td>{item.prob * 100}%</td>
                     </tr>
                 </table>
             );
@@ -144,18 +144,16 @@ class MainPage extends React.Component {
         this._onUrlChange(item.url);
     };
     render() {
-        const sampleImages = APP_CONFIG.sampleImages;
         return (
             <div>
                 <Form>
                     <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text" addonType="prepend" >
-                                <i>Введите URL</i>
-                            </span>
-                        </div>
-                        <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}
-                        />
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                     <span class="input-group-text" id="basic-addon3">Введите URL</span>
+                                </div>
+                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+                            </div>
                     </div>
 
                     <div class="text-center">
@@ -192,7 +190,6 @@ class MainPage extends React.Component {
                 <div class="text-center">
                     {this.renderPrediction()}
                 </div>
-
             </div>
         );
     }

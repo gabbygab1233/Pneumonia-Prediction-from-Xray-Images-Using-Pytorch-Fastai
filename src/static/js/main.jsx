@@ -134,7 +134,7 @@ class MainPage extends React.Component {
                                 <div class="input-group-prepend">
                                      <span class="input-group-text" id="basic-addon3">Введите URL</span>
                                 </div>
-                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"/>
+                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
                             </div>
                     </div>
 

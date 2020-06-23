@@ -4,46 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Веб-сервис для обнаружения признаков пневмонии">
     <meta name="author" content="Aida Yunusova">
-    <title>Обнаружение признаков пневмонии</title>
-    <!--<script language="JavaScript">
-      window.onload = function() {
-        document.addEventListener("contextmenu", function(e){
-          e.preventDefault();
-        }, false);
-        document.addEventListener("keydown", function(e) {
-        //document.onkeydown = function(e) {
-          // "I" key
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-            disabledEvent(e);
-          }
-          // "J" key
-          if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-            disabledEvent(e);
-          }
-          // "S" key + macOS
-          if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-            disabledEvent(e);
-          }
-          // "U" key
-          if (e.ctrlKey && e.keyCode == 85) {
-            disabledEvent(e);
-          }
-          // "F12" key
-          if (event.keyCode == 123) {
-            disabledEvent(e);
-          }
-        }, false);
-        function disabledEvent(e){
-          if (e.stopPropagation){
-            e.stopPropagation();
-          } else if (window.event){
-            window.event.cancelBubble = true;
-          }
-          e.preventDefault();
-          return false;
-        }
-      };
-    </script>-->
+    <title>PneumoVision</title>
+   
   <script>
       var loadFile = function(event) {
               var image = document.getElementById('output');
@@ -76,30 +38,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
     <!-- Lastly, include your app's bundle -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css"/>
     <link rel="shortcut icon" type="image/png" href='../static/images/icon.png' sizes="32x32">
 </head>
 
-<body class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<body class="text-center">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto">
-    <div class="inner">
-      <h1><img src='../static/images/text3.png'></h1>
+    <div>
+      <h1 class="cover-heading"><img src='../static/images/text3.png'></h1>
+      <p class="lead">PneumoVision - веб-сервис для обнаружения признаков пневмонии на рентгеновских снимках легких. Загрузите снимок с устройства или по ссылке ниже.</p>
     </div>
   </header>
-  <p class="lead">PneumoVision - веб-сервис для обнаружения признаков пневмонии на рентгеновских снимках легких. Загрузите снимок с устройства или по ссылке ниже.</p>
 
-  <div id="root"></div>
-
+  <div id="root"class="inner cover"></div>
   <script type="text/babel" src="js/main.jsx"></script>
-</div>
+
 
 <footer class="mastfoot mt-auto">
   <div class="inner">
     <p>PneumoVision, 2020</p>
   </div>
 </footer>
-
+</div>
 </body>
 </html>

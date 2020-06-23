@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Pneumonia Detection</title>
-    <script language="JavaScript">
-
+    <meta name="description" content="Веб-сервис для обнаружения признаков пневмонии">
+    <meta name="author" content="Aida Yunusova">
+    <title>Обнаружение признаков пневмонии</title>
+    <!--<script language="JavaScript">
       window.onload = function() {
         document.addEventListener("contextmenu", function(e){
           e.preventDefault();
@@ -44,17 +43,17 @@
           return false;
         }
       };
-    </script>
+    </script>-->
   <script>
       var loadFile = function(event) {
               var image = document.getElementById('output');
               image.src = URL.createObjectURL(event.target.files[0]);
       };
-      </script> 
+   </script> 
     
     <style>
       html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
-      </style>
+    </style>
 
     <!-- Required dependencies -->
     <script type="text/javascript"
@@ -76,48 +75,34 @@
     <!-- Reactstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reactstrap/7.1.0/reactstrap.min.js"></script>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/react-router/4.3.1/react-router.min.js"></script>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-markdown/4.0.6/react-markdown.js"></script>
     <script src="https://unpkg.com/react-router-dom@4.3.1/umd/react-router-dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
     <!-- Lastly, include your app's bundle -->
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="css/custom.css"/>
-    <link rel="shortcut icon" type="image/png" href="https://i.dlpng.com/static/png/4037934_preview.png" sizes="32x32">
-
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css"/>
+    <link rel="shortcut icon" type="image/png" href='../static/images/icon.png' sizes="32x32">
 </head>
 
-  
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h1><img src='../static/images/text3.png'></h1>
+    </div>
+  </header>
+  <p class="lead">PneumoVision - веб-сервис для обнаружения признаков пневмонии на рентгеновских снимках легких. Загрузите снимок с устройства или по ссылке ниже.</p>
 
-  <body class="w3-pale-blue"></body>
-<div class="w3-content card" style="max-width:960px">
-
-
-
-        <!-- 1. HOME PAGE TAB -->
-        <div class="tabbed w3-animate-opacity w3-white">
-        
-        
-        
-        <!-- Header -->
-        <div class="w3-center title adjust-fontcolor logo">
-                
-          <h1 class="space-letters w3-text-cyan"><i class="fa fa-plus-square w3-padding" ></i><b>Pneumonia Detection</b></h1>
-          <h5 class="space-letters tag-font w3-text-red"><b>powered by<br> Artificial Intelligence</b></h5>
-        </div>
-        
-      
-
-<body>
-
-<div id="root"></div>
-
+  <div id="root"></div>
 
 <script type="text/babel" src="js/main.jsx"></script>
 
-</body>
+<footer class="mastfoot mt-auto">
+  <div class="inner">
+    <p>PneumoVision, 2020</p>
+  </div>
+</footer>
 
+</body>
 </html>

@@ -23,8 +23,3 @@ RUN python src/main.py prepare
 
 # Start the server
 CMD ["python", "src/main.py", "serve"]
-
-
-
-
-

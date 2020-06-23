@@ -10,7 +10,7 @@ WORKDIR app
 ADD requirements.txt .
 RUN pip install -r requirements.txt
 #pip install --no-cache-dir -r
-ADD models models
+ADD models src/models
 ADD src src
 
 #ADD main.py .

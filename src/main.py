@@ -104,7 +104,11 @@ def before_request():
     app.jinja_env.cache = {}
 
 torch.nn.Module.dump_patches = True
+<<<<<<< HEAD
 model = load_model(path="src/models", model_name="export.pkl")
+=======
+model = load_model(path="Pneumonia-Prediction-from-Xray-Images-Using-Pytorch-Fastai/models", model_name="export.pkl")
+>>>>>>> e449fd8f9e7ed3bcd32ff07c2f985ed71f20f9f0
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)

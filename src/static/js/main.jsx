@@ -1,11 +1,6 @@
 const Button = window.Reactstrap.Button;
 
 const Collapse = window.Reactstrap.Collapse;
-const Navbar = window.Reactstrap.Navbar;
-const NavbarBrand = window.Reactstrap.NavbarBrand;
-const Nav = window.Reactstrap.Nav;
-const NavItem = window.Reactstrap.NavItem;
-const NavLink = window.Reactstrap.NavLink;
 
 const Router = window.ReactRouterDOM.BrowserRouter;
 const Route = window.ReactRouterDOM.Route;
@@ -16,11 +11,6 @@ const FormGroup = window.Reactstrap.FormGroup;
 const Label = window.Reactstrap.Label;
 const Input = window.Reactstrap.Input;
 
-const UncontrolledDropdown = window.Reactstrap.UncontrolledDropdown;
-const Dropdown = window.Reactstrap.Dropdown;
-const DropdownToggle = window.Reactstrap.DropdownToggle;
-const DropdownMenu = window.Reactstrap.DropdownMenu;
-const DropdownItem = window.Reactstrap.DropdownItem;
 const Spinner = window.Reactstrap.Spinner;
 
 const axios = window.axios;
@@ -29,14 +19,6 @@ const Select = window.Select;
 
 // Obtain the root 
 const rootElement = document.getElementById('root');
-
-class About extends React.Component {
-    render() {
-        return (
-            <ReactMarkdown source={window.APP_CONFIG.about} />
-        );
-    }
-}
 
 // Create a ES6 class component
 class MainPage extends React.Component {

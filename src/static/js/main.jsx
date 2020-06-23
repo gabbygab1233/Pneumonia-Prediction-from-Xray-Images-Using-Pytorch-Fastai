@@ -127,7 +127,7 @@ class MainPage extends React.Component {
     };
     render() {
         return (
-            <div>
+            <div class="inner cover"> 
                 <Form>
                     <div className="input-group">
                             <div class="input-group mb-3">
@@ -138,7 +138,7 @@ class MainPage extends React.Component {
                             </div>
                     </div>
 
-                    <div class="text-center">
+                    <div>
                         <label>ИЛИ</label>
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
@@ -151,16 +151,16 @@ class MainPage extends React.Component {
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
 
-                    <div class="text-center">
+                    <div>
                         <FormGroup>
-                            <Button color="success" onClick={this._predict}
-                                disabled={this.state.isLoading} className="text-center">Анализировать</Button>
+                            <Button color="#7f83e5" class="btn btn-primary my-2" onClick={this._predict}
+                                disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button color="danger" onClick={this._clear} >Очистить</Button>
+                            <Button color="#fc647d" class="btn btn-secondary my-2" onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 
-                    <div class="text-center">
+                    <div>
                         {this.state.isLoading && (
                             <div>
                                 <Spinner color="info" type="grow" style={{ width: '6rem', height: '6rem' }} />

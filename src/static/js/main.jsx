@@ -127,7 +127,6 @@ class MainPage extends React.Component {
 
             return (
                 <p>
-                    <h3>Хуй:</h3>
                     {predictionItems}
                 </p>
             )
@@ -148,30 +147,11 @@ class MainPage extends React.Component {
         const sampleImages = APP_CONFIG.sampleImages;
         return (
             <div>
-                <h2>{}</h2>
                 <Form>
-                    <FormGroup>
-                        <div>
-                            <div>
-                                <UncontrolledDropdown direction="right" >
-                                    <DropdownToggle caret >
-                                        Sample Image Url
-                                    </DropdownToggle>
-                                    <DropdownMenu >
-                                        {sampleImages.map(si =>
-                                            <DropdownItem onClick={() => this.sampleUrlSelected(si)}>
-                                                {si.name}
-                                            </DropdownItem>)
-                                        }
-                                    </DropdownMenu>
-                                </UncontrolledDropdown>
-                            </div>
-                        </div>
-                    </FormGroup>
                     <div className="input-group">
                         <div className="input-group-prepend">
                             <span className="input-group-text" addonType="prepend" >
-                                <i>Provide a Url</i>
+                                <i>Введите URL</i>
                             </span>
                         </div>
                         <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}
@@ -179,12 +159,12 @@ class MainPage extends React.Component {
                     </div>
 
                     <div class="text-center">
-                        <label>OR</label>
+                        <label>ИЛИ</label>
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
                                     onChange={this._onFileUpload} />
-                                <span class=" btn btn-primary "> Select an Image</span>
+                                <span class="btn-secondary">Загрузите изображение</span>
                             </Label>
                         </FormGroup>
                     </div>
@@ -194,9 +174,9 @@ class MainPage extends React.Component {
                     <div class="text-center">
                         <FormGroup>
                             <Button color="success" onClick={this._predict}
-                                disabled={this.state.isLoading} className="text-center"> Predict</Button>
+                                disabled={this.state.isLoading} className="text-center">Анализировать</Button>
                             <span className="p-1 " />
-                            <Button color="danger" onClick={this._clear} > Clear</Button>
+                            <Button color="danger" onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 
@@ -218,16 +198,6 @@ class MainPage extends React.Component {
     }
 }
 
-class CustomNavBar extends React.Component {
-    render() {
-        const link = APP_CONFIG.code;
-        return (
-            <Navbar light fixed expand="md">
-            </Navbar>
-        )
-    }
-}
-
 //Chicken wing, chicken wing
 //Hot dog and baloney
 //Chicken and macaroni
@@ -238,11 +208,9 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <CustomNavBar />
                 <div>
                     <main role="main" className="container">
                         <Route exact path="/" component={MainPage} />
-                        <Route exact path="/about" component={About} />
                     </main>
                 </div>
             </div>

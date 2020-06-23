@@ -1,23 +1,20 @@
-h3 {
-	color: green;
-	}
-	
 	table {
 		border-collapse: collapse;
 		width: 100%;
 	  }
 	  
 	  th, td {
-		text-align: left;
+		text-align: center;
 		padding: 8px;
 	  }
 	  
-	  tr:nth-child(even){background-color: #f2f2f2}
+	  tr:nth-child(even){background-color: #EDF1EB}
 	  
 	  th {
-		background-color: #4CAF50;
-		color: white;
+		background-color: #2C4247;
+		color: #EDF1EB;
 	  }
+
 .img-preview {
     width: 300px;
     height: 300px;
@@ -125,12 +122,6 @@ li {
 
 .logo1 {
 	font-family: 'Oswald', sans-serif;
-}
-
-
-.header-style {
-	height: 50px;
-	background-color: #0375b4; /*#303030;*/
 }
 
 

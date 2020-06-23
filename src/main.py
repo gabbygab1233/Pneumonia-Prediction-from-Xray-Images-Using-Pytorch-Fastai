@@ -104,7 +104,7 @@ def before_request():
     app.jinja_env.cache = {}
 
 torch.nn.Module.dump_patches = True
-model = load_model(path="app/models", model_name="export.pkl")
+model = load_model(path="src/models", model_name="export.pkl")
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)

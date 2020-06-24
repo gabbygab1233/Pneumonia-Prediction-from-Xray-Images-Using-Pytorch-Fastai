@@ -87,7 +87,9 @@
   .mastfoot {
 	color: #2C4247;
 	position: absolute;
-  	bottom: 0;
+	bottom: 0;
+	height: 2.5rem;
+	align-self: center; 
   }
 
 

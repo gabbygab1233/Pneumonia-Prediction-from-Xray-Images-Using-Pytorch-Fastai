@@ -40,7 +40,8 @@ class MainPage extends React.Component {
         this.setState({
             rawFile: event.target.files[0],
             file: URL.createObjectURL(event.target.files[0]),
-            imageSelected: true
+            imageSelected: true,
+            predictions: []
         });
     };
 
@@ -49,7 +50,8 @@ class MainPage extends React.Component {
         if ((url.length > 5) && (url.indexOf("http") === 0)) {
             this.setState({
                 file: url,
-                imageSelected: true
+                imageSelected: true,
+                predictions: []
             })
         }
     };

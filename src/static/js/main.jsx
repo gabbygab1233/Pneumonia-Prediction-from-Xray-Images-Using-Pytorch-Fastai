@@ -11,8 +11,6 @@ const FormGroup = window.Reactstrap.FormGroup;
 const Label = window.Reactstrap.Label;
 const Input = window.Reactstrap.Input;
 
-const Spinner = window.Reactstrap.Spinner;
-
 const axios = window.axios;
 
 const Select = window.Select;
@@ -34,14 +32,17 @@ class MainPage extends React.Component {
         }
     }
 
+    body_update = () => {
+        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+        document.getElementsByTagName('body').style.height='100%';
+    };
+
     _onFileUpload = (event) => {
         this.setState({
             rawFile: event.target.files[0],
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
         })
-        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
-        document.getElementsByTagName('body').style.height='100%';
     };
 
     _onUrlChange = (url) => {
@@ -52,8 +53,6 @@ class MainPage extends React.Component {
                 imageSelected: true
             })
         }
-        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
-        document.getElementsByTagName('body').style.height='100%';
     };
 
     _clear = async (event) => {
@@ -64,8 +63,6 @@ class MainPage extends React.Component {
             rawFile: null,
             url: ""
         })
-        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
-        document.getElementsByTagName('body').style.height='100%';
     };
 
     _predict = async (event) => {
@@ -99,8 +96,6 @@ class MainPage extends React.Component {
         const predictions = this.state.predictions || [];
 
         if (predictions.length > 0) {
-            document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
-            document.getElementsByTagName('body').style.height='100%';
             const predictionItems = predictions.map((item) =>
                 <table>
                     <tr>
@@ -127,8 +122,6 @@ class MainPage extends React.Component {
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
-        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
-        document.getElementsByTagName('body').style.height='100%';
     };
 
     render() {
@@ -140,7 +133,7 @@ class MainPage extends React.Component {
                                 <div class="input-group-prepend">
                                      <span class="input-group-text" id="basic-addon3">Введите URL</span>
                                 </div>
-                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
+                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} onChange={this.body_update()} type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
                             </div>
                     </div>
 
@@ -149,7 +142,7 @@ class MainPage extends React.Component {
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
-                                    onChange={this._onFileUpload} />
+                                    onChange={this._onFileUpload} onChange={this.body_update()}/>
                                 <span class="btn-secondary">Загрузите изображение</span>
                             </Label>
                         </FormGroup>
@@ -159,10 +152,10 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button class="btn-primary" onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button class="btn-primary" onClick={this._predict} onClick={this.body_update()} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
+                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick={this._clear} onClick={this.body_update()} >Очистить</Button>
                         </FormGroup>
                     </div>
 

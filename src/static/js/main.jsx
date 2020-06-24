@@ -138,7 +138,7 @@ class MainPage extends React.Component {
                                 <div class="input-group-prepend">
                                      <span class="input-group-text" id="basic-addon3">Введите URL</span>
                                 </div>
-                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}  type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
+                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}  type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" />
                             </div>
                     </div>
                     <label class="lb1">ИЛИ</label>
@@ -156,9 +156,9 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button color="#7f83e5" onClick={this._predict} hidden={!this.state.imageSelected}
-                                disabled={this.state.isLoading}>Анализировать</Button>
-                            <Button color="#fc647d" onClick={this._clear} >Очистить</Button>
+                            <button class="anal-but" onClick={this._predict} hidden={!this.state.imageSelected}
+                                disabled={this.state.isLoading}>Анализировать</button>
+                            <button class="clean-but" onClick={this._clear} >Очистить</button>
                         </FormGroup>
                     </div>
 

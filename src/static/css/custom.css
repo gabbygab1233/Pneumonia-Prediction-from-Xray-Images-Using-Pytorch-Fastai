@@ -17,6 +17,25 @@
   }
   .my-but:hover { background-position: right center; }
 
+  .anal-but {
+	margin: 1rem;
+	padding: 0.5rem;
+	text-align: center;
+	color: white;
+	border-radius: 10px;
+	background-color: #7f83e5;
+  }
+  .anal-but:hover { background-color: #484a83; }
+
+  .clean-but {
+	margin: 1rem;
+	padding: 0.5rem;
+	text-align: center;
+	color: white;
+	border-radius: 10px;
+	background-color: #fc647d;
+  }
+  .anal-but:hover { background-color: #8b3947; }
   /*
    * Base structure
    */
@@ -216,7 +235,7 @@ and (orientation : portrait) {
 		padding: 0.5rem;
 		text-align: center;
 		text-transform: uppercase;
-		text-size-adjust: auto;
+		font-size: x-small;
 		transition: 0.5s;
 		background-size: 200% auto;
 		color: white;

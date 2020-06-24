@@ -88,9 +88,10 @@
 	color: #2C4247;
 	position: fixed;
 	bottom: 0;
-	height: 20rem;
+	height: 3rem;
 	text-align: center;
 	align-self: center; 
+	margin-top: 30px;
   }
 
 

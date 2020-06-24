@@ -4,6 +4,7 @@
 
  .my-but {
 	flex: 1 0.5 auto;
+	cursor: pointer;
 	margin: 1rem;
 	padding: 1rem;
 	text-align: center;
@@ -22,22 +23,32 @@
 	padding: 0.5rem;
 	text-align: center;
 	color: white;
-	box-shadow: 0 0 20px #eee;
-	border-radius: 10px;
+	border: 2px solid #7f83e5;
+	border-radius: 5px;
 	background-color: #7f83e5;
+	cursor: pointer;
+	transition: 0.25s ease;
   }
-  .anal-but:hover { background-color: #484a83; }
+  .anal-but:hover {     
+	color: #7f83e5;
+    background-color: transparent; }
 
   .clean-but {
 	margin: 1rem;
 	padding: 0.5rem;
 	text-align: center;
 	color: white;
-	box-shadow: 0 0 20px #eee;
-	border-radius: 10px;
+	border: 2px solid #fc647d;
+	border-radius: 5px;
 	background-color: #fc647d;
+	cursor: pointer;
+	transition: 0.25s ease;
   }
-  .clean-but:hover { background-color: #8b3947; }
+  .clean-but:hover { 	
+	color: #fc647d;
+	background-color: transparent; }
+	
+	
   /*
    * Base structure
    */

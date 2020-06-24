@@ -156,9 +156,9 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button variant="info" overrides={{backgroundColor: "7f83e5"}} onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button variant="info" overrides={{backgroundColor: "#7f83e5"}} onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
-                            <Button variant="danger" overrides={{backgroundColor: "fc647d"}} onClick={this._clear} >Очистить</Button>
+                            <Button variant="danger" overrides={{backgroundColor: "#fc647d"}} onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

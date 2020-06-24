@@ -40,6 +40,8 @@ class MainPage extends React.Component {
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
         })
+        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+        document.getElementsByTagName('body').style.height='100%';
     };
 
     _onUrlChange = (url) => {
@@ -50,6 +52,8 @@ class MainPage extends React.Component {
                 imageSelected: true
             })
         }
+        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+        document.getElementsByTagName('body').style.height='100%';
     };
 
     _clear = async (event) => {
@@ -60,6 +64,8 @@ class MainPage extends React.Component {
             rawFile: null,
             url: ""
         })
+        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+        document.getElementsByTagName('body').style.height='100%';
     };
 
     _predict = async (event) => {
@@ -93,7 +99,8 @@ class MainPage extends React.Component {
         const predictions = this.state.predictions || [];
 
         if (predictions.length > 0) {
-
+            document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+            document.getElementsByTagName('body').style.height='100%';
             const predictionItems = predictions.map((item) =>
                 <table>
                     <tr>
@@ -120,11 +127,10 @@ class MainPage extends React.Component {
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
+        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
+        document.getElementsByTagName('body').style.height='100%';
     };
 
-    sampleUrlSelected = (item) => {
-        this._onUrlChange(item.url);
-    };
     render() {
         return (
             <div class="inner cover"> 

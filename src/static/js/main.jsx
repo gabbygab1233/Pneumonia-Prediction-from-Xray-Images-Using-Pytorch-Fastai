@@ -168,9 +168,10 @@ class MainPage extends React.Component {
 
                     <div>
                         {this.state.isLoading && (
-                            <div>
-                                <Spinner color="info" type="grow" style={{ width: '6rem', height: '6rem' }} />
-                            </div>
+                                //<Spinner color="info" type="grow" style={{ width: '6rem', height: '6rem' }} />
+                                <div class="loadingio-spinner-bars-ssyw4oxr4pc"><div class="ldio-qw1bbuuaxg">
+                                <div></div><div></div><div></div><div></div>
+                                </div></div>
                         )}
                     </div>
                 </Form>

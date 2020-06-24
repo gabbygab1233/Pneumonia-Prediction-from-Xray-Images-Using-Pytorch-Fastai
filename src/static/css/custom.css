@@ -22,6 +22,7 @@
 	padding: 0.5rem;
 	text-align: center;
 	color: white;
+	box-shadow: 0 0 20px #eee;
 	border-radius: 10px;
 	background-color: #7f83e5;
   }
@@ -32,10 +33,11 @@
 	padding: 0.5rem;
 	text-align: center;
 	color: white;
+	box-shadow: 0 0 20px #eee;
 	border-radius: 10px;
 	background-color: #fc647d;
   }
-  .anal-but:hover { background-color: #8b3947; }
+  .clean-but:hover { background-color: #8b3947; }
   /*
    * Base structure
    */

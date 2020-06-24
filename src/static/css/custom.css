@@ -18,7 +18,7 @@
   }
   .my-but:hover { background-position: right center; }
 
-  .anal-but {
+  /*.anal-but {
 	margin: 1rem;
 	padding: 0.5rem;
 	text-align: center;
@@ -47,6 +47,7 @@
   .clean-but:hover { 	
 	color: #fc647d;
 	background-color: transparent; }
+	*/
 	
 	
   /*

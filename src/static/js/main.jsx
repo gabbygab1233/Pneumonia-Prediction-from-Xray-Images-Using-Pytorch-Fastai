@@ -1,9 +1,4 @@
 const Button = window.Reactstrap.Button;
-const TouchableOpacity = window.Reactstrap.TouchableOpacity;
-
-const StyleSheet = window.Reactstrap.StyleSheet;
-
-const Text = window.Reactstrap.Text;
 
 const Collapse = window.Reactstrap.Collapse;
 
@@ -19,16 +14,6 @@ const Input = window.Reactstrap.Input;
 const axios = window.axios;
 
 const Select = window.Select;
-
-const CustomButton1 = (props) => {
-    const { title = 'Анализировать', style = {}, textStyle = {}, onPress } = props;
-
-    return (
-        <TouchableOpacity onPress={this._predict} style={[styles.button, style]}>
-            <Text style={[styles.text, textStyle]}>{props.title}</Text>
-        </TouchableOpacity>
-    );
-};
 
 // Obtain the root 
 const rootElement = document.getElementById('root');
@@ -171,9 +156,9 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <CustomButton1 class="anal-but" hidden={!this.state.imageSelected}
-                                disabled={this.state.isLoading}></CustomButton1>
-
+                            <Button variant="info" overrides={{backgroundColor: "7f83e5"}} onClick={this._predict} hidden={!this.state.imageSelected}
+                                disabled={this.state.isLoading}>Анализировать</Button>
+                            <Button variant="danger" overrides={{backgroundColor: "fc647d"}} onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

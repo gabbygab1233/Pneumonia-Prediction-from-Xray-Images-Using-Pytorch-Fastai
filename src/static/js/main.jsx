@@ -32,9 +32,9 @@ class MainPage extends React.Component {
         }
     }
 
-    body_update() {
-        document.getElementsByTagName('body').style.height='100%';
-    }
+//body_update() {
+        //document.getElementsByTagName('body').style.height='100%';
+   // }
 
     _onFileUpload = (event) => {
         this.setState({
@@ -42,7 +42,6 @@ class MainPage extends React.Component {
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
         });
-        this.body_update();
     };
 
     _onUrlChange = (url) => {
@@ -53,7 +52,6 @@ class MainPage extends React.Component {
                 imageSelected: true
             })
         }
-        this.body_update();
     };
 
     _clear = async (event) => {
@@ -64,7 +62,6 @@ class MainPage extends React.Component {
             rawFile: null,
             url: ""
         })
-        this.body_update();
     };
 
     _predict = async (event) => {
@@ -110,7 +107,6 @@ class MainPage extends React.Component {
                     </tr>
                 </table>
             );
-            this.body_update();
             return (
                 <p>
                     {predictionItems}
@@ -125,7 +121,6 @@ class MainPage extends React.Component {
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
-        this.body_update();
     };
 
     render() {
@@ -140,9 +135,8 @@ class MainPage extends React.Component {
                                 <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}  type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
                             </div>
                     </div>
-
+                    <label class="lb1">ИЛИ</label>
                     <div>
-                        <label class="lb1">ИЛИ</label>
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"

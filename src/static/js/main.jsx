@@ -150,10 +150,10 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button class="btn-my" onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button class="button-my" onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button class="btn-my2" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
+                            <Button class="button-my2" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

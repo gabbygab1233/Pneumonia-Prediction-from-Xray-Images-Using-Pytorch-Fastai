@@ -17,18 +17,18 @@
   }
   .btn-secondary:hover { background-position: right center; }
 
-  .btn btn-primary my-2 {
+  .btn-primary.my-2 {
 	background-color: #7f83e5;
   }
-  .btn btn-primary my-2:hover {
+  .btn-primary.my-2:hover {
 	background-color: #4f518f;
   }
 
 
-  .btn btn-secondary my-2 {
+  .btn-secondary.my-2 {
 	background-color: #fc647d;
   }
-  .btn btn-primary my-2:hover {
+  .btn-primary.my-2:hover {
 	background-color: #8f3b49;
   }
 

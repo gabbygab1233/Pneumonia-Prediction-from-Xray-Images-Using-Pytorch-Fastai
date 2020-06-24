@@ -43,6 +43,7 @@ class MainPage extends React.Component {
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
         })
+        this.body_update()
     };
 
     _onUrlChange = (url) => {
@@ -53,6 +54,7 @@ class MainPage extends React.Component {
                 imageSelected: true
             })
         }
+        this.body_update()
     };
 
     _clear = async (event) => {
@@ -63,6 +65,7 @@ class MainPage extends React.Component {
             rawFile: null,
             url: ""
         })
+        this.body_update()
     };
 
     _predict = async (event) => {
@@ -108,7 +111,7 @@ class MainPage extends React.Component {
                     </tr>
                 </table>
             );
-
+            this.body_update()
             return (
                 <p>
                     {predictionItems}
@@ -117,6 +120,7 @@ class MainPage extends React.Component {
         } else {
             return null
         }
+       
     }
 
     handleChange = (selectedOption) => {
@@ -133,16 +137,16 @@ class MainPage extends React.Component {
                                 <div class="input-group-prepend">
                                      <span class="input-group-text" id="basic-addon3">Введите URL</span>
                                 </div>
-                                <Input value={this.state.url} name="file" onChange="(e) => this._onUrlChange(e.target.value); this.body_update()" type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
+                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)}  type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
                             </div>
                     </div>
 
                     <div>
-                        <label>ИЛИ</label>
+                        <label class="lb1">ИЛИ</label>
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
-                                    onChange="this._onFileUpload; this.body_update()"/>
+                                    onChange={this._onFileUpload}/>
                                 <span class="btn-secondary">Загрузите изображение</span>
                             </Label>
                         </FormGroup>
@@ -152,10 +156,10 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button class="btn-primary" onClick="this._predict; this.body_update()" hidden={!this.state.imageSelected}
+                            <Button class="btn-primary" onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick="this._clear; this.body_update()" >Очистить</Button>
+                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

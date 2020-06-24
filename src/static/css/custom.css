@@ -173,7 +173,7 @@ input[type="file"] {
 	word-wrap: break-word;
 }
 
-label {
+.lb1 {
 	margin-bottom: 10px;
 	margin-top: -5px;
 }

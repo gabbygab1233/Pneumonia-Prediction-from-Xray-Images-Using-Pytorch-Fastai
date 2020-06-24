@@ -172,7 +172,7 @@ class MainPage extends React.Component {
                     </div>
                 </Form>
 
-                <div class="text-center">
+                <div class="text-center" hidden={this.state.imageSelected}>
                     {this.renderPrediction()}
                 </div>
             </div>

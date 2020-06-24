@@ -65,7 +65,11 @@ class MainPage extends React.Component {
     };
 
     _predict = async (event) => {
-        this.setState({ isLoading: true });
+        this.setState({ 
+            isLoading: true, 
+            imageSelected: false,
+            predictions: []
+        });
 
         let resPromise = null;
         if (this.state.rawFile) {
@@ -141,7 +145,7 @@ class MainPage extends React.Component {
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
                                     onChange={this._onFileUpload}/>
-                                <span class="btn-secondary">Загрузите изображение</span>
+                                <span class="my-but">Загрузите изображение</span>
                             </Label>
                         </FormGroup>
                     </div>

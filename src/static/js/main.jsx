@@ -70,7 +70,7 @@ class MainPage extends React.Component {
         this.setState({ 
             isLoading: true, 
             imageSelected: false,
-            predictions: []
+            predictions: [],
         });
 
         let resPromise = null;

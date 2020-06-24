@@ -3,9 +3,9 @@
  */
 
  .my-but {
-	flex: 1 1 auto;
-	margin: 10px;
-	padding: 10px;
+	flex: 1 0.5 auto;
+	margin: 1rem;
+	padding: 1rem;
 	text-align: center;
 	text-transform: uppercase;
 	transition: 0.5s;
@@ -17,6 +17,21 @@
   }
   .my-but:hover { background-position: right center; }
 
+
+  .anal-but {
+	background-color: #7f83e5;
+  }
+  .anal-but:hover {
+	  background-color: #474981;
+  }
+
+  .clean-but {
+	  background-color: #fc647d;
+  }
+
+  .clean-but:hover {
+	  background-color: #833441;
+  }
 
   /*
    * Base structure
@@ -91,7 +106,7 @@
 	height: 3rem;
 	text-align: center;
 	align-self: center; 
-	margin-top: 30px;
+	margin-top: 100px;
   }
 
 

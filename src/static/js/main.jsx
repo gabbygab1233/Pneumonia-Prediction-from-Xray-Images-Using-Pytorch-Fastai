@@ -33,7 +33,6 @@ class MainPage extends React.Component {
     }
 
     body_update() {
-        document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
         document.getElementsByTagName('body').style.height='100%';
     }
 
@@ -157,10 +156,10 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button class="btn-primary" onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button class="btn-my" onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
+                            <Button class="btn-my2" hidden={!this.state.imageSelected} onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

@@ -2,28 +2,29 @@
  * Button
  */
 
- .btn-primary{
+ .btn-my{
 	background-color: #7f83e5;
 	background-image: none;
 	padding: 5px;
   }
-  .btn-primary:hover {
+  .btn-my:hover {
 	background-color: #4f518f;
   }
 
 
-  .btn-success {
+  .btn-my2 {
 	background-color: #fc647d;
 	background-image: none;
 	padding: 5px;
   }
-  .btn-success:hover {
+  .btn-my2:hover {
 	background-color: #8f3b49;
   }
 
  .btn-secondary {
 	flex: 1 1 auto;
 	margin: 10px;
+	margin-top: 20px;
 	padding: 10px;
 	text-align: center;
 	text-transform: uppercase;
@@ -172,12 +173,6 @@ input[type="file"] {
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 }
-
-.lb1 {
-	margin-bottom: 10px;
-	margin-top: -5px;
-}
-
 
 
    /*

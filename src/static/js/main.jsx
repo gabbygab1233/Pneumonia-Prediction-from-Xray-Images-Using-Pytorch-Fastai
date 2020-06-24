@@ -32,18 +32,18 @@ class MainPage extends React.Component {
         }
     }
 
-    body_update = () => {
+    body_update() {
         document.getElementsByTagName('body').setAttribute("style","display:flex;height:100%");
         document.getElementsByTagName('body').style.height='100%';
-    };
+    }
 
     _onFileUpload = (event) => {
         this.setState({
             rawFile: event.target.files[0],
             file: URL.createObjectURL(event.target.files[0]),
             imageSelected: true
-        })
-        this.body_update()
+        });
+        this.body_update();
     };
 
     _onUrlChange = (url) => {
@@ -54,7 +54,7 @@ class MainPage extends React.Component {
                 imageSelected: true
             })
         }
-        this.body_update()
+        this.body_update();
     };
 
     _clear = async (event) => {
@@ -65,7 +65,7 @@ class MainPage extends React.Component {
             rawFile: null,
             url: ""
         })
-        this.body_update()
+        this.body_update();
     };
 
     _predict = async (event) => {
@@ -111,7 +111,7 @@ class MainPage extends React.Component {
                     </tr>
                 </table>
             );
-            this.body_update()
+            this.body_update();
             return (
                 <p>
                     {predictionItems}
@@ -126,6 +126,7 @@ class MainPage extends React.Component {
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
+        this.body_update();
     };
 
     render() {

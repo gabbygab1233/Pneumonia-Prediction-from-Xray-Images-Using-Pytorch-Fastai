@@ -133,7 +133,7 @@ class MainPage extends React.Component {
                                 <div class="input-group-prepend">
                                      <span class="input-group-text" id="basic-addon3">Введите URL</span>
                                 </div>
-                                <Input value={this.state.url} name="file" onChange={(e) => this._onUrlChange(e.target.value)} onChange={this.body_update()} type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
+                                <Input value={this.state.url} name="file" onChange="(e) => this._onUrlChange(e.target.value); this.body_update()" type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" autocomplete='off'/>
                             </div>
                     </div>
 
@@ -142,7 +142,7 @@ class MainPage extends React.Component {
                         <FormGroup id={"upload_button"}>
                             <Label for="imageUpload">
                                 <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
-                                    onChange={this._onFileUpload} onChange={this.body_update()}/>
+                                    onChange="this._onFileUpload; this.body_update()"/>
                                 <span class="btn-secondary">Загрузите изображение</span>
                             </Label>
                         </FormGroup>
@@ -152,10 +152,10 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button class="btn-primary" onClick={this._predict} onClick={this.body_update()} hidden={!this.state.imageSelected}
+                            <Button class="btn-primary" onClick="this._predict; this.body_update()" hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
                             <span className="p-1 " />
-                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick={this._clear} onClick={this.body_update()} >Очистить</Button>
+                            <Button class="btn-success" hidden={!this.state.imageSelected} onClick="this._clear; this.body_update()" >Очистить</Button>
                         </FormGroup>
                     </div>
 

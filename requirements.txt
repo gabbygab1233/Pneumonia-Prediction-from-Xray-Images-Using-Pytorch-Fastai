@@ -3,5 +3,4 @@ torchvision
 Flask
 fastai
 opencv-python
-cv2
 torchvision

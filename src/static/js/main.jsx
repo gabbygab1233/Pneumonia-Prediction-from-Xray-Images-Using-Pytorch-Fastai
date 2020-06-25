@@ -160,7 +160,7 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
-                    <img src={item.heat_img} className={"img-preview"} hidden={this.state.predictions==[]} />
+                    <img src={'heatmap'} className={"img-preview"} hidden={this.state.predictions==[]} />
 
                     <div>
                         <FormGroup>

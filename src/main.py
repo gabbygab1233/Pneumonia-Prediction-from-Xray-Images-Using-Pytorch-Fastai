@@ -15,6 +15,7 @@ import json
 from gradcam import grad_cam
 import torchvision
 from torchvision import transforms
+from PIL import Image
 
 with open("src/config.yaml", 'r') as stream:
     APP_CONFIG = yaml.safe_load(stream)
@@ -83,7 +84,8 @@ def heatmap_maker():
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
-    input_tensor = transform(img)
+    image = Image.open(img)
+    input_tensor = transform(image)
     img_label = 'PNEUMONIA'
     heat_img = grad_cam(model, input_tensor, heatmap_layer, img_label)
     return send_file(heat_img)

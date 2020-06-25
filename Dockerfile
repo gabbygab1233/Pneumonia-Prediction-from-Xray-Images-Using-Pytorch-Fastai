@@ -9,6 +9,7 @@ WORKDIR app
 
 RUN pip install --upgrade pip
 
+
 ADD requirements.txt .
 RUN pip install -r requirements.txt
 #pip install --no-cache-dir -r

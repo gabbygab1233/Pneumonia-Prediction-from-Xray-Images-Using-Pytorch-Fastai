@@ -105,12 +105,8 @@ class MainPage extends React.Component {
             this.setState({ predictions: payload.predictions, heatmap: payload_h.heat_img, isLoading: false });
             console.log(payload)
         } catch (e) {
-            err = "Произошла ошибка"
-            alert(err)
+           alert(e)
         }
-        //catch (e) {
-           // alert(e)
-       // }
     };
 
     renderPrediction() {

@@ -11,6 +11,9 @@ from flask import Flask
 import requests
 import torch
 import json
+from gradcam import grad_cam
+import torchvision
+from torchvision import transforms
 
 with open("src/config.yaml", 'r') as stream:
     APP_CONFIG = yaml.safe_load(stream)
@@ -61,6 +64,25 @@ def upload_file():
         img = load_image_bytes(bytes)
     res = predict(img)
     return flask.jsonify(res)
+
+def heatmap_maker():
+    heatmap_layer = model.layer4[2].conv2
+    if flask.request.method == 'GET':
+        url = flask.request.args.get("url")
+        img = load_image_url(url)
+    else:
+        bytes = flask.request.files['file'].read()
+        img = load_image_bytes(bytes)
+    transform = transforms.Compose([
+        transforms.Resize(240),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+    ])
+    input_tensor = transform(img)
+    img_label = 'PNEUMONIA'
+    heat_img = grad_cam(model, input_tensor, heatmap_layer, img_label)
+    return {"heatmap": heat_img}
 
 
 @app.route('/api/classes', methods=['GET'])

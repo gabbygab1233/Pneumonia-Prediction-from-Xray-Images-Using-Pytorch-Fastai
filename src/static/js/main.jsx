@@ -29,6 +29,7 @@ class MainPage extends React.Component {
             url: null,
             isLoading: false,
             selectedOption: null,
+            heatmap: null,
         }
     }
 
@@ -62,7 +63,8 @@ class MainPage extends React.Component {
             imageSelected: false,
             predictions: [],
             rawFile: null,
-            url: ""
+            url: "",
+            heatmap: null
         })
     };
 
@@ -71,6 +73,7 @@ class MainPage extends React.Component {
             isLoading: true, 
             imageSelected: false,
             predictions: [],
+            heatmap: null,
         });
 
         let resPromise = null;
@@ -93,12 +96,20 @@ class MainPage extends React.Component {
             this.setState({ predictions: payload.predictions, isLoading: false });
             console.log(payload)
         } catch (e) {
-            alert(e)
+            err = "Произошла ошибка"
+            alert(err)
         }
+        //catch (e) {
+           // alert(e)
+       // }
     };
 
     renderPrediction() {
         const predictions = this.state.predictions || [];
+
+        //gradcam
+        this.state.heatmap = item.heat_img
+        //gradcam end
 
         if (predictions.length > 0) {
             const predictionItems = predictions.map((item) =>
@@ -153,6 +164,7 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
+                    <img src={this.state.heatmap} className={"img-preview"} hidden={this.state.predictions==[]} />
 
                     <div>
                         <FormGroup>
@@ -179,10 +191,6 @@ class MainPage extends React.Component {
     }
 }
 
-//Chicken wing, chicken wing
-//Hot dog and baloney
-//Chicken and macaroni
-//Chillin' with my homie
 
 // Create a function to wrap up your component
 function App() {

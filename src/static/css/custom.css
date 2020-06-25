@@ -244,9 +244,9 @@ and (max-device-width : 667px)
 and (orientation : portrait) { 
 	
 	.my-but {
-		flex: 1 0.5 auto;
 		margin: 0.5rem;
 		padding: 0.5rem;
+		width: 50%;
 		text-align: center;
 		text-transform: uppercase;
 		font-size: x-small;
@@ -274,8 +274,7 @@ and (orientation : portrait) {
 		display: flex;*/
 		width: 80%; 
 		height: fit-content;
-		position: relative;
-		min-height: 100vh;
+		position: fixed;
 		color: #2C4247;
 		box-shadow: inset 0 0 2rem rgba(0, 0, 0, .5);
 	  }

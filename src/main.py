@@ -84,7 +84,8 @@ def heatmap_maker():
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
-    image = Image.open_image(img)
+    img.seek(0)
+    image = Image.open(img)
     input_tensor = transform(image)
     img_label = 'PNEUMONIA'
     heat_img = grad_cam(model, input_tensor, heatmap_layer, img_label)

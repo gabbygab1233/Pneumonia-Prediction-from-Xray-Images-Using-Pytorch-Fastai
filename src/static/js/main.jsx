@@ -107,10 +107,6 @@ class MainPage extends React.Component {
     renderPrediction() {
         const predictions = this.state.predictions || [];
 
-        //gradcam
-        this.state.heatmap = item.heat_img
-        //gradcam end
-
         if (predictions.length > 0) {
             const predictionItems = predictions.map((item) =>
                 <table>
@@ -164,7 +160,7 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
-                    <img src={this.state.heatmap} className={"img-preview"} hidden={this.state.predictions==[]} />
+                    <img src={item.heat_img} className={"img-preview"} hidden={this.state.predictions==[]} />
 
                     <div>
                         <FormGroup>

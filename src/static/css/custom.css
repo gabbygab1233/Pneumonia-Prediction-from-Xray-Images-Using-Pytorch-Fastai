@@ -258,6 +258,10 @@ and (orientation : portrait) {
 		background-image: linear-gradient(to right, #fc647d 0%, #7f83e5 51%, #fc647d 100%);
 	  }
 	  .my-but:hover { background-position: right center; }
+
+	  Button {
+		  margin: 5px;
+	  }
 	
 	  /*
 	   * Base structure

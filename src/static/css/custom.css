@@ -259,8 +259,8 @@ and (orientation : portrait) {
 	  }
 	  .my-but:hover { background-position: right center; }
 
-	  Button {
-		  margin: 5px;
+	  .mee {
+		  margin: 10px;
 	  }
 	
 	  /*

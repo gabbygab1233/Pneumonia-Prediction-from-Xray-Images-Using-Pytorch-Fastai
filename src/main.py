@@ -69,8 +69,8 @@ def upload_file():
 @app.route('/api/heatmap', methods=['POST', 'GET'])
 def heatmap_maker():
     #model.eval()
-    model.model.eval()
-    heatmap_layer = model.layer4[2].conv2
+    m = model.model.eval()
+    heatmap_layer = m[0][-1][-1]
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
         img = load_image_url(url)

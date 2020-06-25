@@ -65,6 +65,7 @@ def upload_file():
     res = predict(img)
     return flask.jsonify(res)
 
+@app.route('/api/heatmap', methods=['POST', 'GET'])
 def heatmap_maker():
     heatmap_layer = model.layer4[2].conv2
     if flask.request.method == 'GET':
@@ -82,7 +83,7 @@ def heatmap_maker():
     input_tensor = transform(img)
     img_label = 'PNEUMONIA'
     heat_img = grad_cam(model, input_tensor, heatmap_layer, img_label)
-    return {"heatmap": heat_img}
+    return send_file(heat_img)
 
 
 @app.route('/api/classes', methods=['GET'])

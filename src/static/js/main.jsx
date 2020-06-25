@@ -77,23 +77,32 @@ class MainPage extends React.Component {
         });
 
         let resPromise = null;
+        let heatPromise = null;
         if (this.state.rawFile) {
             const data = new FormData();
             data.append('file', this.state.rawFile);
             resPromise = axios.post('/api/classify', data);
+            heatPromise = axios.post('/api/heatmap', data);
         } else {
             resPromise = axios.get('/api/classify', {
                 params: {
                     url: this.state.file
                 }
             });
+            heatPromise = axios.get('/api/heatmap', {
+                params: {
+                    url: this.state.heatmap
+                }
+            });
         }
 
         try {
             const res = await resPromise;
+            const heat_img = await heatPromise;
             const payload = res.data;
+            const payload_h = heat_img.data;
 
-            this.setState({ predictions: payload.predictions, isLoading: false });
+            this.setState({ predictions: payload.predictions, heatmap: payload_h.heat_img, isLoading: false });
             console.log(payload)
         } catch (e) {
             err = "Произошла ошибка"
@@ -160,7 +169,7 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
-                    <img src={'heatmap'} className={"img-preview"} hidden={this.state.predictions==[]} />
+                    <img src={this.state.heatmap} className={"img-preview"} hidden={this.state.predictions==[]} />
 
                     <div>
                         <FormGroup>

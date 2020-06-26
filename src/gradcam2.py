@@ -4,9 +4,7 @@ import scipy.ndimage
 import os
 import sys
 
-path = Path('../static/outputs')
 
-#opachki
 class GradCam():
     @classmethod
     def from_one_img(cls,learn,x_img,label1=None,label2=None):
@@ -74,7 +72,7 @@ class GradCam():
                 row_axes[col].set_title(label2_title)
         # plt.tight_layout()
         fig.subplots_adjust(wspace=0, hspace=0)
-        fig.savefig(path/'gradcam.png')
+        fig.savefig('../static/outputs/gradcam.png')
 
 def minmax_norm(x):
     return (x - np.min(x))/(np.max(x) - np.min(x))

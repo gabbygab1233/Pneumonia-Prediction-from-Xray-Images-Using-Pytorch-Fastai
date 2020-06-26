@@ -12,7 +12,7 @@ from flask import send_file
 import requests
 import torch
 import json
-from gradcam import grad_cam
+from gradcam2 import *
 import torchvision
 from torchvision import transforms
 from PIL import Image
@@ -65,22 +65,9 @@ def upload_file():
         bytes = flask.request.files['file'].read()
         img = load_image_bytes(bytes)
     res = predict(img)
+    gcam = GradCam.from_one_img(model,img)
+    gcam.plot()
     return flask.jsonify(res)
-
-@app.route('/api/heatmap', methods=['POST', 'GET'])
-def heatmap_maker():
-    #model.eval()
-    m = model.model.eval()
-    heatmap_layer = m[0][-1][-1]
-    if flask.request.method == 'GET':
-        url = flask.request.args.get("url")
-        img = load_image_url(url)
-    else:
-        bytes = flask.request.files['file'].read()
-        img = load_image_bytes(bytes)
-    img_label = 'PNEUMONIA'
-    heat_img = grad_cam(model, img, heatmap_layer, img_label)
-    return send_file(heat_img)
 
 
 @app.route('/api/classes', methods=['GET'])

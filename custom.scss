@@ -1,3 +1,10 @@
+$theme-colors: (
+  "primary": #7f83e5,
+  "danger": #fc647d
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
 /*
  * Button
  */

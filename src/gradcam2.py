@@ -73,6 +73,7 @@ class GradCam():
                 row_axes[col].set_title(label2_title)
         # plt.tight_layout()
         fig.subplots_adjust(wspace=0, hspace=0)
+        console.log('doshli suda')
         fig.savefig('../static/outputs/gradcam.png')
 
 def minmax_norm(x):

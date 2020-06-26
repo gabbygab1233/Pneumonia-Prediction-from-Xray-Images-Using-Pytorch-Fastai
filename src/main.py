@@ -64,7 +64,7 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
     predictions = predictions[0:1]
 
     gcam = GradCam.from_one_img(model,img)
-    gcam.plot()
+    gcam.plot(plot_gbp=False)
 
     return {"class": str(pred_class), "predictions": predictions}
 

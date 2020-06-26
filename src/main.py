@@ -75,9 +75,11 @@ def heatmap_maker():
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
         img = load_image_url(url)
+        print(img)
     else:
         bytes = flask.request.files['file'].read()
         img = load_image_bytes(bytes)
+        print(img)
     transform = transforms.Compose([
         transforms.Resize(240),
         transforms.CenterCrop(224),

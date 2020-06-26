@@ -19,7 +19,7 @@ from PIL import Image
 import tempfile
 import shutil
 
-with open("src/config.yaml", 'r') as stream:
+with open("config.yaml", 'r') as stream:
     APP_CONFIG = yaml.safe_load(stream)
 
 app = Flask(__name__)
@@ -121,10 +121,10 @@ def before_request():
     app.jinja_env.cache = {}
 
 torch.nn.Module.dump_patches = True
-model = load_model(path="src/models", model_name="export.pkl")
+model = load_model(path="models", model_name="export.pkl")
 
 if __name__ == '__main__':
-    port = os.environ.get('PORT', 5000)
+    port = os.environ.get('PORT', 8000)
 
     if "prepare" not in sys.argv:
         app.jinja_env.auto_reload = True

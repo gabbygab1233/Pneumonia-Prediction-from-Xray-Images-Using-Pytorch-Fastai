@@ -3,7 +3,7 @@ from fastai.callbacks.hooks import *
 import scipy.ndimage
 
 path = Path(__file__).parent
-GRADCAM_FILE_SRC = '/tmp/gradcam_image.png'
+GRADCAM_FILE_SRC = 'tmp/gradcam_image.png'
 
 class GradCam():
     @classmethod

@@ -22,9 +22,9 @@ import shutil
 with open("src/config.yaml", 'r') as stream:
     APP_CONFIG = yaml.safe_load(stream)
 
-tmp = tempfile.TemporaryDirectory()
-
 app = Flask(__name__)
+
+tmp = tempfile.TemporaryDirectory()
 
 #file
 def load_model(path=".", model_name="export.pkl"):

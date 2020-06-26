@@ -160,9 +160,9 @@ class MainPage extends React.Component {
 
                     <div>
                         <FormGroup>
-                            <Button className="btn-primary" onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button className="mr-1 ml-1 bg-primary" onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
-                            <Button className="btn-danger" onClick={this._clear} >Очистить</Button>
+                            <Button className="mr-1 ml-1 bg-danger" onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

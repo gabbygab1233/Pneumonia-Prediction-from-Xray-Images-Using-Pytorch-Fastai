@@ -53,6 +53,8 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:1]
+    gcam = GradCam.from_one_img(model,img)
+    gcam.plot()
     return {"class": str(pred_class), "predictions": predictions}
 
 
@@ -65,8 +67,6 @@ def upload_file():
         bytes = flask.request.files['file'].read()
         img = load_image_bytes(bytes)
     res = predict(img)
-    gcam = GradCam.from_one_img(model,img)
-    gcam.plot()
     return flask.jsonify(res)
 
 

@@ -6,6 +6,7 @@ import sys
 
 path = Path('app/src/static/outputs')
 
+#opachki
 class GradCam():
     @classmethod
     def from_one_img(cls,learn,x_img,label1=None,label2=None):

@@ -16,9 +16,13 @@ from gradcam2 import *
 import torchvision
 from torchvision import transforms
 from PIL import Image
+import tempfile
+import shutil
 
 with open("src/config.yaml", 'r') as stream:
     APP_CONFIG = yaml.safe_load(stream)
+
+tmp = tempfile.TemporaryDirectory()
 
 app = Flask(__name__)
 
@@ -53,6 +57,9 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:1]
+
+    gcam = GradCam.from_one_img(model,img)
+    gcam.plot()
 
     return {"class": str(pred_class), "predictions": predictions}
 
@@ -92,6 +99,7 @@ def add_header(response):
     response.headers["Pragma"] = "no-cache"
 
     response.cache_control.max_age = 0
+    shutil.rmtree(tmp.name)
     return response
 
 
@@ -111,8 +119,6 @@ def before_request():
 
 torch.nn.Module.dump_patches = True
 model = load_model(path="src/models", model_name="export.pkl")
-gcam = GradCam.from_one_img(model,img)
-gcam.plot()
 
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)

@@ -1,0 +1,22 @@
+{
+  "name": "pneumonia-prediction-from-xray-images-using-pytorch-fastai",
+  "version": "1.0.0",
+  "description": "![jZqpV51](https://user-images.githubusercontent.com/37177883/56046385-b02ff300-5d75-11e9-9439-dc964bf3fb22.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aunusova/Pneumonia-Prediction-from-Xray-Images-Using-Pytorch-Fastai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aunusova/Pneumonia-Prediction-from-Xray-Images-Using-Pytorch-Fastai/issues"
+  },
+  "homepage": "https://github.com/aunusova/Pneumonia-Prediction-from-Xray-Images-Using-Pytorch-Fastai#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}

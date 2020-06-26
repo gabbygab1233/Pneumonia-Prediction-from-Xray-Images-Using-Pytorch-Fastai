@@ -6,6 +6,7 @@ import sys
 import matplotlib
 import gc
 import logging
+import numpy as np
 
 
 class GradCam():
@@ -81,8 +82,9 @@ class GradCam():
         fig.savefig('../static/outputs/gradcam.png')
 
 def minmax_norm(x):
-    return (x - np.min(x))/(np.max(x) - np.min(x))
     logging.warning("4")
+    return (x - np.min(x))/(np.max(x) - np.min(x))
+    
 def scaleup(x,size):
     scale_mult=size/x.shape[0]
     upsampled = scipy.ndimage.zoom(x, scale_mult)

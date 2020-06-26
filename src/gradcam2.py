@@ -4,6 +4,8 @@ import scipy.ndimage
 import os
 import sys
 import matplotlib
+import gc
+import logging
 
 
 class GradCam():
@@ -32,7 +34,8 @@ class GradCam():
             hmap2,xb_grad2 = get_grad_heatmap(learn,xb,label2_idx,size=xb_img.shape[-1])
             prob2 = probs[label2_idx]
             label2_args = [label2,prob2,hmap2,xb_grad2]
-            
+
+        logging.warning("1")    
         return cls(xb_img,label1,prob1,hmap1,xb_grad1,label2_args)
     
     def __init__(self,xb_img,label1,prob1,hmap1,xb_grad1,label2_args=None):
@@ -40,6 +43,7 @@ class GradCam():
         self.label1,self.prob1,self.hmap1,self.xb_grad1 = label1,prob1,hmap1,xb_grad1
         if label2_args:
             self.label2,self.prob2,self.hmap2,self.xb_grad2 = label2_args
+        logging.warning("2")
             
     def plot(self,plot_hm=True,plot_gbp=True):
         if not plot_hm and not plot_gbp:
@@ -73,14 +77,16 @@ class GradCam():
                 row_axes[col].set_title(label2_title)
         # plt.tight_layout()
         fig.subplots_adjust(wspace=0, hspace=0)
-        console.log('doshli suda')
+        logging.warning("3")
         fig.savefig('../static/outputs/gradcam.png')
 
 def minmax_norm(x):
     return (x - np.min(x))/(np.max(x) - np.min(x))
+    logging.warning("4")
 def scaleup(x,size):
     scale_mult=size/x.shape[0]
     upsampled = scipy.ndimage.zoom(x, scale_mult)
+    logging.warning("5")
     return upsampled
 
 # hook for Gradcam
@@ -89,11 +95,13 @@ def hooked_backward(m,xb,target_layer,clas):
         with hook_output(target_layer, grad=True) as hook_g: # gradient w.r.t to the target_layer
             preds = m(xb)
             preds[0,int(clas)].backward() # same as onehot backprop
+    logging.warning("6")
     return hook_a,hook_g
 
 def clamp_gradients_hook(module, grad_in, grad_out):
     for grad in grad_in:
         torch.clamp_(grad, min=0.0)
+    logging.warning("7")
         
 # hook for guided backprop
 def hooked_ReLU(m,xb,clas):
@@ -101,6 +109,7 @@ def hooked_ReLU(m,xb,clas):
     with callbacks.Hooks(relu_modules, clamp_gradients_hook, is_forward=False) as _:
         preds = m(xb)
         preds[0,int(clas)].backward()
+    logging.warning("8")
         
 def guided_backprop(learn,xb,y):
     #xb = xb.cuda()
@@ -109,6 +118,7 @@ def guided_backprop(learn,xb,y):
     if not xb.grad is None:
         xb.grad.zero_(); 
     hooked_ReLU(m,xb,y);
+    logging.warning("9")
     return xb.grad[0].cpu().numpy()
 
 def show_heatmap(hm,xb_im,size,ax=None):
@@ -116,7 +126,8 @@ def show_heatmap(hm,xb_im,size,ax=None):
         _,ax = plt.subplots()
     xb_im.show(ax)
     ax.imshow(hm, alpha=0.8, extent=(0,size,size,0),
-              interpolation='bilinear',cmap='magma');
+              interpolation='bilinear',cmap='magma')
+    logging.warning("10")
 
 def get_grad_heatmap(learn,xb,y,size):
     '''
@@ -142,5 +153,5 @@ def get_grad_heatmap(learn,xb,y,size):
     
     # multiply xb_grad and hmap_scaleup and switch axis
     xb_grad = np.einsum('ijk, jk->jki',xb_grad, hmap_scaleup) #(224,224,3)
-    
+    logging.warning("11")
     return hmap,xb_grad

@@ -68,7 +68,6 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
 
     return {"class": str(pred_class), "predictions": predictions}
 
-
 @app.route('/api/classify', methods=['POST', 'GET'])
 def upload_file():
     if flask.request.method == 'GET':

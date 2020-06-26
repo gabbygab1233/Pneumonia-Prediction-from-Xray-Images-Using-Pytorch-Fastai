@@ -156,13 +156,13 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
-                    <img src={"/tmp/gradcam_image.png"} className={"img-preview"} hidden={this.state.predictions.value=[]} />
+                    <img src="/tmp/gradcam_image.png" className={"img-preview"} hidden={this.state.predictions.value=[]} />
 
                     <div>
                         <FormGroup>
-                            <Button className="mr-1 ml-1 bg-primary" onClick={this._predict} hidden={!this.state.imageSelected}
+                            <Button className="mr-1 ml-1 bg-primary border-0" onClick={this._predict} hidden={!this.state.imageSelected}
                                 disabled={this.state.isLoading}>Анализировать</Button>
-                            <Button className="mr-1 ml-1 bg-danger" onClick={this._clear} >Очистить</Button>
+                            <Button className="mr-1 ml-1 bg-danger border-0" onClick={this._clear} >Очистить</Button>
                         </FormGroup>
                     </div>
 

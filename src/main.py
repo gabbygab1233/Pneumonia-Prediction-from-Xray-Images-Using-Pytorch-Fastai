@@ -54,8 +54,7 @@ def predict(img, n: int = 3) -> Dict[str, Union[str, List]]:
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:1]
     gcam = GradCam.from_one_img(model,img)
-    gcam.plot()
-    return {"class": str(pred_class), "predictions": predictions}
+    return {"class": str(pred_class), "predictions": predictions, gcam.plot()}
 
 
 @app.route('/api/classify', methods=['POST', 'GET'])

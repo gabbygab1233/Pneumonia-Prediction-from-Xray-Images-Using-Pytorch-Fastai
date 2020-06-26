@@ -75,22 +75,11 @@ def heatmap_maker():
     if flask.request.method == 'GET':
         url = flask.request.args.get("url")
         img = load_image_url(url)
-        print(img)
     else:
         bytes = flask.request.files['file'].read()
         img = load_image_bytes(bytes)
-        print(img)
-    transform = transforms.Compose([
-        transforms.Resize(240),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ])
-    #img.seek(0)
-    image = Image.fromarray(img)
-    input_tensor = transform(image)
     img_label = 'PNEUMONIA'
-    heat_img = grad_cam(model, input_tensor, heatmap_layer, img_label)
+    heat_img = grad_cam(model, img, heatmap_layer, img_label)
     return send_file(heat_img)
 
 

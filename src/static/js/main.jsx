@@ -33,10 +33,6 @@ class MainPage extends React.Component {
         }
     }
 
-//body_update() {
-        //document.getElementsByTagName('body').style.height='100%';
-   // }
-
     _onFileUpload = (event) => {
         this.setState({
             rawFile: event.target.files[0],

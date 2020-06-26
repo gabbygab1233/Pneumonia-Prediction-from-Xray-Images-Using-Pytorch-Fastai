@@ -24,7 +24,12 @@ with open("src/config.yaml", 'r') as stream:
 
 app = Flask(__name__)
 
-tmp = tempfile.TemporaryDirectory()
+outdir = 'static/outputs'
+img_file = os.path.join(outdir, 'gradcam_image.png')
+
+def safe_rm(file):
+    if os.path.exists(file):
+        os.remove(file)
 
 #file
 def load_model(path=".", model_name="export.pkl"):

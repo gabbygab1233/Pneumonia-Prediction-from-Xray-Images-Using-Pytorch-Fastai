@@ -4,7 +4,7 @@ import scipy.ndimage
 import sys
 
 path = Path(__file__).parent
-GRADCAM_FILE_SRC = '/tmp/gradcam_image.png'
+GRADCAM_FILE_SRC = 'static/outputs/gradcam_image.png'
 
 class GradCam():
     @classmethod

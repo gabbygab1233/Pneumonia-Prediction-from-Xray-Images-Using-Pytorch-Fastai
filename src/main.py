@@ -24,7 +24,7 @@ with open("src/config.yaml", 'r') as stream:
 
 app = Flask(__name__)
 
-outdir = 'static/outputs'
+outdir = '../static/outputs'
 img_file = os.path.join(outdir, 'gradcam_image.png')
 
 def safe_rm(file):

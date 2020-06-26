@@ -4,7 +4,7 @@ import scipy.ndimage
 import os
 import sys
 
-path = Path('app/src/static/outputs')
+path = Path('../static/outputs')
 
 #opachki
 class GradCam():

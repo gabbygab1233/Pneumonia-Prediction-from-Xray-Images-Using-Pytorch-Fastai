@@ -8,36 +8,6 @@ path = Path('app/src/static/outputs')
 
 class GradCam():
     @classmethod
-    def from_interp(cls,learn,interp,img_idx,ds_type=DatasetType.Valid,include_label=False):
-        # produce heatmap and xb_grad for pred label (and actual label if include_label is True)
-        if ds_type == DatasetType.Valid:
-            ds = interp.data.valid_ds
-        elif ds_type == DatasetType.Test:
-            ds = interp.data.test_ds
-            include_label=False
-        else:
-            return None
-        
-        x_img = ds.x[img_idx]
-        xb,_ = interp.data.one_item(x_img)
-        xb_img = Image(interp.data.denorm(xb)[0])
-        probs = interp.preds[img_idx].numpy()
-
-        pred_idx = interp.pred_class[img_idx].item() # get class idx of img prediction label
-        hmap_pred,xb_grad_pred = get_grad_heatmap(learn,xb,pred_idx,size=xb_img.shape[-1])
-        prob_pred = probs[pred_idx]
-        
-        actual_args=None
-        if include_label:
-            actual_idx = ds.y.items[img_idx] # get class idx of img actual label
-            if actual_idx!=pred_idx:
-                hmap_actual,xb_grad_actual = get_grad_heatmap(learn,xb,actual_idx,size=xb_img.shape[-1])
-                prob_actual = probs[actual_idx]
-                actual_args=[interp.data.classes[actual_idx],prob_actual,hmap_actual,xb_grad_actual]
-        
-        return cls(xb_img,interp.data.classes[pred_idx],prob_pred,hmap_pred,xb_grad_pred,actual_args)
-    
-    @classmethod
     def from_one_img(cls,learn,x_img,label1=None,label2=None):
         '''
         learn: fastai's Learner
@@ -132,7 +102,7 @@ def hooked_ReLU(m,xb,clas):
         preds[0,int(clas)].backward()
         
 def guided_backprop(learn,xb,y):
-    xb = xb.cuda()
+    #xb = xb.cuda()
     m = learn.model.eval();
     xb.requires_grad_();
     if not xb.grad is None:
@@ -151,7 +121,7 @@ def get_grad_heatmap(learn,xb,y,size):
     '''
     Main function to get hmap for heatmap and xb_grad for guided backprop
     '''
-    xb = xb.cuda()
+    #xb = xb.cuda()
     m = learn.model.eval();
     target_layer = m[0][-1][-1] # last layer of group 0
     hook_a,hook_g = hooked_backward(m,xb,target_layer,y)

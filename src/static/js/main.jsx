@@ -152,7 +152,8 @@ class MainPage extends React.Component {
                     </div>
 
                     <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected} />
-                    <img src="static/outputs/gradcam_image.png" className={"img-preview"} hidden={this.state.predictions.value=[]} />
+                    <img src="static/outputs/gradcam.png" className={"img-preview"} hidden={this.state.predictions.value=[]} />
+    
 
                     <div>
                         <FormGroup>

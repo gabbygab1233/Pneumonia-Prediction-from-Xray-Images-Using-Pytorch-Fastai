@@ -99,7 +99,6 @@ def add_header(response):
     response.headers["Pragma"] = "no-cache"
 
     response.cache_control.max_age = 0
-    shutil.rmtree(tmp.name)
     return response
 
 

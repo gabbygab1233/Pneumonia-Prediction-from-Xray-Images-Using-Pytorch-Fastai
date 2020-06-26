@@ -3,6 +3,7 @@ from fastai.callbacks.hooks import *
 import scipy.ndimage
 import os
 import sys
+import matplotlib
 
 
 class GradCam():
